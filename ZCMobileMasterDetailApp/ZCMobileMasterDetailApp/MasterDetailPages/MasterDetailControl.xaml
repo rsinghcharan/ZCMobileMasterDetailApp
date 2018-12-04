@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ZCMobileMasterDetailApp.MasterDetailPages.MasterDetailControl"
+             x:Name="Parent" >
+    <AbsoluteLayout>
+    <Grid x:Name="masterGrid" AutomationId="MasterDetail_Container_Master_Grid" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" ColumnSpacing="1" RowSpacing="1">
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,0,0,0" />
+                    <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+                </OnPlatform>
+            </Grid.Margin>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+             <ColumnDefinition Width="*" />
+           </Grid.ColumnDefinitions>
+            <Grid x:Name="headerGridRow" Grid.Row="0" BackgroundColor="#01446b">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <ContentView Margin="10,0,0,0" HorizontalOptions="Start" IsVisible="{Binding HamburgerVisibility}">
+                    <ContentView.GestureRecognizers>
+                        <!--<TapGestureRecognizer Command="{Binding HamburgerCommand}" />-->
+                    </ContentView.GestureRecognizers>
+                    <Label AutomationId="MasterDetail_Container_Label_Hamburger" Text="Menu" WidthRequest="80" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="White" FontFamily="FontAwesome" IsVisible="true" />
+                </ContentView>
+                
+                <Label AutomationId="MasterDetail_Container_Header_Title" Grid.Column="1" x:Name="headerTitle" HeightRequest="30" Font="Bold" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center" Text="Login" FontSize="18"  TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                    IsVisible="True" LineBreakMode="TailTruncation">
+                </Label>
+                <ContentView Margin="0,0,10,0" Grid.Column="2" IsVisible="true" HorizontalOptions="End">
+                    <ContentView.GestureRecognizers>
+                        <!--<TapGestureRecognizer Command="{Binding NeedMoreInfoCommand}" CommandParameter="1" />-->
+                    </ContentView.GestureRecognizers>
+                    <Label AutomationId="MasterDetail_Container_Label_Need_More_Info_Right" x:Name="dotdotdot" Text="Search" HeightRequest="30" FontSize="16" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" VerticalOptions="CenterAndExpand" IsVisible="true" TextColor="White"
+                        HorizontalOptions="End">
+                        <Label.GestureRecognizers>
+                            <!--<TapGestureRecognizer Command="{Binding NeedMoreInfoCommand}" CommandParameter="1" />-->
+                        </Label.GestureRecognizers>
+                    </Label>
+                </ContentView>
+           </Grid>
+           <ContentView Grid.Row="1" x:Name="DetailContainer" BackgroundColor="White" />
+           </Grid>
+        <!-- Left Nav Bar Start-->
+        <ContentView AutomationId="MasterDetail_Container_Content_View_Activity_Indicator" x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="false" BackgroundColor="Transparent">
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Black">
+                <!--<StackLayout.CornerRadius>
+                    <OnPlatform iOS="7" Android="15" x:TypeArguments="x:Double">
+                    </OnPlatform>
+                </StackLayout.CornerRadius>-->
+                <ActivityIndicator x:Name="activityIndicator" IsRunning="{Binding IsExecuting}" IsVisible="{Binding IsExecuting}" Color="White">
+                    <ActivityIndicator.Margin>
+                        <OnPlatform iOS="20,20,0,20" Android="25,10,0,10" x:TypeArguments="Thickness" />
+                    </ActivityIndicator.Margin>
+                </ActivityIndicator>
+                <Label Text="Loading..." TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                    <Label.Margin>
+                        <OnPlatform iOS="0,20,20,20" Android="0,15,25,15" x:TypeArguments="Thickness" />
+                    </Label.Margin>
+                </Label>
+            </StackLayout>
+        </ContentView>
+        <!-- Left Nav Bar End-->
+        <!-- Overlay Start-->
+        <ContentView AutomationId="MasterDetail_Container_Content_View_Activity_Indicator" x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="false" BackgroundColor="Transparent">
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Black">
+                <!--<StackLayout.CornerRadius>
+                    <OnPlatform iOS="7" Android="15" x:TypeArguments="x:Double">
+                    </OnPlatform>
+                </StackLayout.CornerRadius>-->
+                <ActivityIndicator x:Name="activityIndicator" IsRunning="{Binding IsExecuting}" IsVisible="{Binding IsExecuting}" Color="White">
+                    <ActivityIndicator.Margin>
+                        <OnPlatform iOS="20,20,0,20" Android="25,10,0,10" x:TypeArguments="Thickness" />
+                    </ActivityIndicator.Margin>
+                </ActivityIndicator>
+                <Label Text="Loading..." TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                    <Label.Margin>
+                        <OnPlatform iOS="0,20,20,20" Android="0,15,25,15" x:TypeArguments="Thickness" />
+                    </Label.Margin>
+                </Label>
+            </StackLayout>
+        </ContentView>
+        <!-- Overlay End-->
+ </AbsoluteLayout>
+</ContentPage>
+

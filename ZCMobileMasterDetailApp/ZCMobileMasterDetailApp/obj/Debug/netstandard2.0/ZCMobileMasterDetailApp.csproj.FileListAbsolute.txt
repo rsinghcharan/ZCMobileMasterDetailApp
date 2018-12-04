@@ -1,0 +1,15 @@
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/Detail1.xaml.g.cs
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/Detail2.xaml.g.cs
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/Detail3.xaml.g.cs
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/MasterDetailPages/MasterDetailControl.xaml.g.cs
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/ZCMobileMasterDetailApp.csproj.CoreCompileInputs.cache
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/ZCMobileMasterDetailApp.AssemblyInfoInputs.cache
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/ZCMobileMasterDetailApp.AssemblyInfo.cs
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/ZCMobileMasterDetailApp.dll
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/ZCMobileMasterDetailApp.pdb
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/bin/Debug/netstandard2.0/ZCMobileMasterDetailApp.deps.json
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/bin/Debug/netstandard2.0/ZCMobileMasterDetailApp.dll
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/bin/Debug/netstandard2.0/ZCMobileMasterDetailApp.pdb
+/Users/rsingh/Projects/ZCMobileMasterDetailApp/ZCMobileMasterDetailApp/obj/Debug/netstandard2.0/XamlC.stamp

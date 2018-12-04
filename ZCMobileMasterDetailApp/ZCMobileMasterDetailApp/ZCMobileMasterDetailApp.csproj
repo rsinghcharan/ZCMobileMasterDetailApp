@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MasterDetailPages\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MasterDetailControl.xaml.cs" />
+    <Compile Remove="MasterDetailControlViewModel.cs" />
+    <Compile Remove="ViewModel\MasterDetailViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="MasterDetailPages\MasterDetailControl.xaml.cs">
+      <DependentUpon>MasterDetailControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MasterDetailControl.xaml" />
+  </ItemGroup>
+</Project>
