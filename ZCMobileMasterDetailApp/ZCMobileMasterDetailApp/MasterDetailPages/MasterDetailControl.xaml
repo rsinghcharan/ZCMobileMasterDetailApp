@@ -26,7 +26,7 @@
                 </Grid.ColumnDefinitions>
                 <ContentView Margin="10,0,0,0" HorizontalOptions="Start" IsVisible="{Binding HamburgerVisibility}">
                     <ContentView.GestureRecognizers>
-                        <!--<TapGestureRecognizer Command="{Binding HamburgerCommand}" />-->
+                        <TapGestureRecognizer Tapped="Handle_Hamburger_Menu_Click" />
                     </ContentView.GestureRecognizers>
                     <Label AutomationId="MasterDetail_Container_Label_Hamburger" Text="Menu" WidthRequest="80" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="White" FontFamily="FontAwesome" IsVisible="true" />
                 </ContentView>
@@ -36,7 +36,7 @@
                 </Label>
                 <ContentView Margin="0,0,10,0" Grid.Column="2" IsVisible="true" HorizontalOptions="End">
                     <ContentView.GestureRecognizers>
-                        <!--<TapGestureRecognizer Command="{Binding NeedMoreInfoCommand}" CommandParameter="1" />-->
+                        <TapGestureRecognizer Tapped="Handle_Top_Right_Search_Icon_Click" />
                     </ContentView.GestureRecognizers>
                     <Label AutomationId="MasterDetail_Container_Label_Need_More_Info_Right" x:Name="dotdotdot" Text="Search" HeightRequest="30" FontSize="16" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" VerticalOptions="CenterAndExpand" IsVisible="true" TextColor="White"
                         HorizontalOptions="End">
@@ -49,25 +49,45 @@
            <ContentView Grid.Row="1" x:Name="DetailContainer" BackgroundColor="White" />
            </Grid>
         <!-- Left Nav Bar Start-->
-        <ContentView AutomationId="MasterDetail_Container_Content_View_Activity_Indicator" x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="false" BackgroundColor="Transparent">
-            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Black">
-                <!--<StackLayout.CornerRadius>
-                    <OnPlatform iOS="7" Android="15" x:TypeArguments="x:Double">
-                    </OnPlatform>
-                </StackLayout.CornerRadius>-->
-                <ActivityIndicator x:Name="activityIndicator" IsRunning="{Binding IsExecuting}" IsVisible="{Binding IsExecuting}" Color="White">
-                    <ActivityIndicator.Margin>
-                        <OnPlatform iOS="20,20,0,20" Android="25,10,0,10" x:TypeArguments="Thickness" />
-                    </ActivityIndicator.Margin>
-                </ActivityIndicator>
-                <Label Text="Loading..." TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
-                    <Label.Margin>
-                        <OnPlatform iOS="0,20,20,20" Android="0,15,25,15" x:TypeArguments="Thickness" />
-                    </Label.Margin>
-                </Label>
-            </StackLayout>
+        <ContentView AutomationId="MasterDetail_Container_Content_View_Left_Navigation" x:Name="leftNavigationPanel" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="false" BackgroundColor="Transparent">
+            <Grid x:Name="leftNavigationOverlay" Grid.Row="0" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                   <Label Margin="20, 10,20,0" AutomationId="MasterDetail_Container_Label_Hamburger" Text="Left Navigation Item 1" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="Purple" FontFamily="FontAwesome" IsVisible="true" />
+                    <Label Margin="20, 10,20,0" AutomationId="MasterDetail_Container_Label_Hamburger1" Text="Left Navigation Item 2" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="Purple" FontFamily="FontAwesome" IsVisible="true" />
+                    <Label Margin="20, 10,20,0" AutomationId="MasterDetail_Container_Label_Hamburger2" Text="Left Navigation Item 3" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="Purple" FontFamily="FontAwesome" IsVisible="true" />
+                </StackLayout>
+                <BoxView Grid.Column="1" Opacity="0.5" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <BoxView.GestureRecognizers>
+                       <TapGestureRecognizer Tapped="Handle_LeftNav_Overlay_Click" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+           </Grid>
         </ContentView>
         <!-- Left Nav Bar End-->
+        <!-- Right Side Half Penel Start-->
+        <ContentView AutomationId="MasterDetail_Container_Content_View_Right_Half_Panel" x:Name="rightNavigationHalfPanel" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="false" BackgroundColor="Transparent">
+            <Grid x:Name="rightSidePanelOverlay" Grid.Row="0" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+               </Grid.ColumnDefinitions>
+                <BoxView Opacity="0.5" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <BoxView.GestureRecognizers>
+                       <TapGestureRecognizer Tapped="Handle_Right_Panel_Overlay_Click" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                   <Label Margin="20, 10,20,0" AutomationId="MasterDetail_Container_Label_Hamburger" Text="Filter Page Item 1" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="Purple" FontFamily="FontAwesome" IsVisible="true" />
+                    <Label Margin="20, 10,20,0" AutomationId="MasterDetail_Container_Label_Hamburger1" Text="Filter Page Item 2" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="Purple" FontFamily="FontAwesome" IsVisible="true" />
+                    <Label Margin="20, 10,20,0" AutomationId="MasterDetail_Container_Label_Hamburger2" Text="Filter Page Item 3" VerticalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" FontSize="16" TextColor="Purple" FontFamily="FontAwesome" IsVisible="true" />
+                </StackLayout>
+          </Grid>
+        </ContentView>
+        <!-- Right Side Half Penel Start End-->
         <!-- Overlay Start-->
         <ContentView AutomationId="MasterDetail_Container_Content_View_Activity_Indicator" x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="false" BackgroundColor="Transparent">
             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Black">

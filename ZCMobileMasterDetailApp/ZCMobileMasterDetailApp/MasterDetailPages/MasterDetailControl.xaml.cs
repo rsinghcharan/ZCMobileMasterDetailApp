@@ -9,7 +9,27 @@ namespace ZCMobileMasterDetailApp.MasterDetailPages
 {
     public partial class MasterDetailControl
     {
+        //Handle Left Navigation Overlay Click
+        void Handle_LeftNav_Overlay_Click(object sender, System.EventArgs e)
+        {
+            leftNavigationPanel.IsVisible = false;
+        }
+        //Handle Top Left Hamburger Icon Click to display Left Navigation Bar with Overlay Effect
+        void Handle_Hamburger_Menu_Click(object sender, System.EventArgs e)
+        {
+            leftNavigationPanel.IsVisible = true;
+        }
+        //Handle Top Right Search Icon Click to display Right Half Panel Bar with Overlay Effect
+        void Handle_Top_Right_Search_Icon_Click(object sender, System.EventArgs e)
+        {
+            rightNavigationHalfPanel.IsVisible = true;
+        }
 
+        //Handle Right Half Panel Overlay Click
+        void Handle_Right_Panel_Overlay_Click(object sender, System.EventArgs e)
+        {
+            rightNavigationHalfPanel.IsVisible = false;
+        }
         public static readonly BindableProperty SideContentProperty = BindableProperty.Create("SideContent",
             typeof(View), typeof(MasterDetailControl), null, propertyChanged: (bindable, value, newValue) =>
             {
